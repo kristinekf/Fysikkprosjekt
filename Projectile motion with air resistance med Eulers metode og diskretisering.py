@@ -2,18 +2,23 @@ import numpy as np
 import math
 import matplotlib.pyplot as plt
 
-m = 0.1  # mass of particle, kg
+m = 0.0017  # mass of particle, kg
 g = 9.81 # tyngdeakselerasjonen, m/s^2
 
-N = 100000  # number of steps
-h = 0.001  # step size
+N = 1000000  # number of steps
+h = 0.00001  # step size
 
 # initial values
 t_0 = 0.0
-v_0 = 5.0 # utgangshastighet, m/s
-theta = 45 # utgangsvinkel, grader
+
+v_0 = 2.123 # utgangshastighet, m/s
+theta = 60.0 # utgangsvinkel, grader
 v_x0 = v_0 * math.cos(math.radians(theta))  # x-hastighet ved start
 v_y0 = v_0 * math.sin(math.radians(theta))  # y-hastighet ved start
+
+v_x0 = 1.058 # manuelt skrevet inn fra forsøk
+v_y0 = 1.715 # manuelt skrevet inn fra forsøk
+
 s_x0 = 0.0  # startposisjon, meter
 s_y0 = 0.0  # startposisjon, meter
 
@@ -64,7 +69,10 @@ for n in range(N):
 
 # With air resistance:
 
-D = 0.01  # drag coefficient
+D = 0.00005  # drag coefficient, ca. 0.00003 is to be expected
+
+terminal_v = 20.0
+D = m*g/terminal_v**2
 
 t2 = np.zeros(N + 1)
 vx2 = np.zeros(N + 1)
