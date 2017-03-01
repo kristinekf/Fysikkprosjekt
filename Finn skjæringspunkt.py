@@ -1,5 +1,26 @@
 import numpy as np
 
+
+"""
+DETTE ER OUTPUT:
+
+Kast 1 skjæringspunkt: 0.4896
+Kast 2 skjæringspunkt: 0.4533
+Kast 3 skjæringspunkt: 0.407
+Kast 4 skjæringspunkt: 0.5162
+Kast 5 skjæringspunkt: 0.5432
+Kast 6 skjæringspunkt: 0.4369
+Kast 7 skjæringspunkt: 0.5049
+Kast 8 skjæringspunkt: 0.5488
+Kast 9 skjæringspunkt: 0.4905
+Kast 10 skjæringspunkt: 0.5359
+Tallene angir hvor mange meter unna
+utskytningspunktet (origo) kula skjærer x-aksen.
+
+Gjennomsnitt: 0.4926 m
+"""
+
+
 # Liste over koeffisientene til y-x-grafen til hakk1 take2, alle 10 forsøkene
 hakk1_sy_sx = [-3.57, 1.743, 0.002446] # eks: s_y(s_x) = -3.57x^2 + 1.743x + +.002446
 hakk2_sy_sx = [-4.315,  1.956, -0.00002245]
@@ -37,11 +58,12 @@ i = 0
 for forsøk in hakk1take2:
     i+=1
     punkt = find_t_when_sy_is_0(forsøk)
-    print("Kast",i, "skjæringspunkt:",punkt)
+    print("Kast",i, "skjæringspunkt:",round(punkt,4))
     alle_skjæringspkt.append(punkt)
-print("Tallene angir hvor mange meter unna utskytningspunktet (origo) kula skjærer x-aksen. \n")
+
+print("Tallene angir hvor mange meter unna \nutskytningspunktet (origo) kula skjærer x-aksen. \n")
 
 # Finner gjennomsnitt
 gjennomsnitt = np.average(alle_skjæringspkt)
-print("Gjennomsnitt:", gjennomsnitt)
+print("Gjennomsnitt:", round(gjennomsnitt,4), "m")
 
